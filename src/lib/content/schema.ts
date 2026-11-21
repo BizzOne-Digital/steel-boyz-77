@@ -563,6 +563,17 @@ export const SETTINGS_FIELDS: FieldDef[] = [
     ],
   },
   {
+    name: "registration",
+    label: "Player registration & waivers",
+    type: "group",
+    help: "Used on the Register page, the Register menu link and the Tryout Registration service.",
+    fields: [
+      { name: "url", label: "Registration form URL (e.g. Google Form)", type: "link" },
+      { name: "buttonLabel", label: "Button label", type: "text", max: 40 },
+      { name: "qrImage", label: "QR code image (must point to the same form)", type: "image", folder: "misc" },
+    ],
+  },
+  {
     name: "notifications",
     label: "Inquiry notifications",
     type: "group",

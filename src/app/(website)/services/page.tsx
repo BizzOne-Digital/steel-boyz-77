@@ -84,7 +84,7 @@ export default async function ServicesPage() {
                   {s.note && <p className="mt-1 text-sm text-white/70">{s.note}</p>}
                 </div>
                 <Link
-                  href={`/contact?interest=${INTEREST_BY_SLUG[s.slug] ?? "general"}#inquiry`}
+                  href={s.slug === "tryouts" ? "/register" : `/contact?interest=${INTEREST_BY_SLUG[s.slug] ?? "general"}#inquiry`}
                   className="group mt-7 inline-flex min-h-12 items-center gap-2 bg-brand px-7 font-condensed text-base font-bold uppercase text-black clip-angle transition-transform hover:-translate-y-0.5"
                 >
                   {s.ctaLabel || "Contact Us"} <ChevronRight className="size-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />

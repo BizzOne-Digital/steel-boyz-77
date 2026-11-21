@@ -50,6 +50,7 @@ const SiteSettingsSchema = new Schema(
     social: { type: Schema.Types.Mixed, default: {} },
     footer: { type: Schema.Types.Mixed, default: {} },
     seo: { type: Schema.Types.Mixed, default: {} },
+    registration: { type: Schema.Types.Mixed, default: {} },
     notifications: { type: Schema.Types.Mixed, default: {} },
     privacy: { type: Schema.Types.Mixed, default: {} },
   },

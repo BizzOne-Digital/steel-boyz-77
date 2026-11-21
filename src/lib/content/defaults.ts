@@ -29,6 +29,11 @@ export const DEFAULT_SETTINGS = {
       "STEEL BOYZ 7-7 offers 7-on-7 football, certified 1-on-1 player training, Hudl and social media reviews, and recruiting-focused support for high school athletes.",
     ogImage: "/images/site/hero-desktop.webp",
   },
+  registration: {
+    url: "https://docs.google.com/forms/d/e/1FAIpQLSfjOR4si_iZHJ0whe-6OL_wOBsSBlrYXFg9L-fnvo01U-9OsQ/viewform?usp=header",
+    buttonLabel: "Register Now",
+    qrImage: "/images/site/registration-qr.png",
+  },
   notifications: { emailEnabled: true, recipient: "sdstephens321@gmail.com" },
   privacy: {
     consentText:
