@@ -136,7 +136,7 @@ export function Header({ logo, name, affiliation }: { logo: string; name: string
         id="mobile-nav"
         ref={panelRef}
         hidden={!open}
-        className="fixed inset-x-0 bottom-0 top-18 z-40 overflow-y-auto bg-ink lg:hidden"
+        className="absolute inset-x-0 top-full z-40 h-[calc(100dvh-4.5rem)] overflow-y-auto bg-ink lg:hidden"
       >
         <nav aria-label="Mobile" className="flex min-h-full flex-col px-4 pb-10 pt-6">
           <ul className="space-y-1">

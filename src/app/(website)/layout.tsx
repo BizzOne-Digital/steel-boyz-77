@@ -1,5 +1,6 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { TopBar } from "@/components/layout/TopBar";
 import { getServices, getSettings } from "@/lib/data";
 import { siteUrl } from "@/lib/utils";
 
@@ -27,6 +28,7 @@ export default async function WebsiteLayout({ children }: { children: React.Reac
       >
         Skip to content
       </a>
+      <TopBar settings={settings} />
       <Header
         logo={settings.branding.logo}
         name={settings.branding.businessName}
