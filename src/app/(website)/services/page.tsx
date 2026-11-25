@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { Check, ChevronRight, Info } from "lucide-react";
-import { getFaqs, getPage, getServices } from "@/lib/data";
+import { getFaqs, getMerchandise, getPage, getServices } from "@/lib/data";
 import { pageMetadata } from "@/lib/seo";
-import { cn, paragraphs } from "@/lib/utils";
+import { cn, formatPrice, paragraphs } from "@/lib/utils";
 import { ClosingCTA, InnerHero } from "@/components/shared/InnerHero";
 import { FaqList } from "@/components/shared/FaqList";
 import { Container, SectionHeading } from "@/components/ui/Section";
@@ -21,11 +21,48 @@ const INTEREST_BY_SLUG: Record<string, string> = {
 };
 
 export default async function ServicesPage() {
-  const [p, services, faqs] = await Promise.all([getPage("services"), getServices(), getFaqs()]);
+  const [p, services, faqs, merch] = await Promise.all([getPage("services"), getServices(), getFaqs(), getMerchandise()]);
+  const uniform = merch.find((m) => m.slug === "uniform");
+  const fees = [
+    ...services.map((s) => ({ name: s.title, price: s.priceLabel, note: s.note, href: `#${s.slug}` })),
+    ...(uniform ? [{ name: uniform.name, price: formatPrice(uniform.price), note: uniform.description, href: "/team-store" }] : []),
+  ];
 
   return (
     <>
       <InnerHero {...p.hero} crumb="Services" />
+
+      <section id="fees" aria-labelledby="fees-title" className="border-b border-white/10 bg-ink-2 py-14 lg:py-16">
+        <Container>
+          <h2 id="fees-title" className="font-display text-5xl text-white">
+            Program <span className="text-brand">Fees</span>
+          </h2>
+          <div className="mt-8 overflow-hidden border border-line">
+            <table className="w-full text-left text-sm">
+              <caption className="sr-only">STEEL BOYZ 7-7 program fees</caption>
+              <thead className="bg-brand font-condensed text-sm uppercase tracking-wide text-black">
+                <tr>
+                  <th scope="col" className="px-4 py-3 sm:px-6">Program / Item</th>
+                  <th scope="col" className="px-4 py-3 text-right sm:px-6">Cost</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-white/10 bg-charcoal">
+                {fees.map((f) => (
+                  <tr key={f.name}>
+                    <th scope="row" className="px-4 py-4 align-top font-normal sm:px-6">
+                      <Link href={f.href} className="font-condensed text-lg font-bold uppercase text-white hover:text-brand">
+                        {f.name}
+                      </Link>
+                      {f.note && <p className="mt-1 max-w-2xl text-xs leading-relaxed text-muted">{f.note}</p>}
+                    </th>
+                    <td className="whitespace-nowrap px-4 py-4 text-right align-top font-display text-2xl text-brand sm:px-6">{f.price}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </Container>
+      </section>
 
       <section className="bg-ink pb-6 pt-20 lg:pt-28">
         <Container>

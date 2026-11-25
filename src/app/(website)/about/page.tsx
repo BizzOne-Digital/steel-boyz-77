@@ -41,6 +41,30 @@ export default async function AboutPage() {
         </section>
       )}
 
+      {p.affiliate.visible && p.affiliate.body && (
+        <section aria-labelledby="affiliate" className="relative overflow-hidden border-t border-white/10 bg-ink-2 py-20 lg:py-28 grain">
+          <span aria-hidden="true" className="absolute -left-20 top-0 h-full w-40 -skew-x-12 bg-brand/5" />
+          <Container className="relative grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
+            <Reveal direction="left" className="lg:sticky lg:top-32 lg:self-start">
+              <Eyebrow>{p.affiliate.eyebrow}</Eyebrow>
+              <h2 id="affiliate" className="mt-4 font-display text-5xl text-white sm:text-6xl">
+                {p.affiliate.heading}
+              </h2>
+              <span aria-hidden="true" className="mt-6 block h-1 w-24 -skew-x-[30deg] bg-brand" />
+            </Reveal>
+            <Reveal direction="right">
+              <div className="prose-brand text-base leading-relaxed text-white/80 sm:text-lg">
+                {paragraphs(p.affiliate.body).map((t, i, all) => (
+                  <p key={i} className={i === all.length - 1 ? "border-l-4 border-brand pl-4 font-semibold text-white" : undefined}>
+                    {t}
+                  </p>
+                ))}
+              </div>
+            </Reveal>
+          </Container>
+        </section>
+      )}
+
       {p.mission.visible && (
         <section aria-labelledby="mission" className="relative overflow-hidden bg-brand py-20 text-black lg:py-24">
           <span aria-hidden="true" className="absolute -right-10 top-0 h-full w-56 -skew-x-12 bg-black/10" />

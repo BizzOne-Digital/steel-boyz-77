@@ -162,7 +162,12 @@ export function MerchandisePreview({ data, items }: { data: Home["merch"]; items
             </Reveal>
           ))}
         </ul>
-        {data.note && <p className="mt-8 text-sm text-white/60">{data.note}</p>}
+        <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+          {data.note && <p className="text-sm text-white/60">{data.note}</p>}
+          <ButtonLink href="/team-store" variant="outline" className="shrink-0">
+            Visit Team Store
+          </ButtonLink>
+        </div>
       </Container>
     </section>
   );

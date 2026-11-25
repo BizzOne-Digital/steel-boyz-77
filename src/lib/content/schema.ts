@@ -220,6 +220,17 @@ export const PAGE_FIELDS: Record<PageSlug, FieldDef[]> = {
       ],
     },
     {
+      name: "affiliate",
+      label: "Under the Radar Recruiting statement",
+      type: "group",
+      fields: [
+        visible,
+        { name: "eyebrow", label: "Eyebrow", type: "text", max: 40 },
+        { name: "heading", label: "Heading", type: "text", max: 80 },
+        { name: "body", label: "Statement (blank line = new paragraph)", type: "textarea", max: 5000, rows: 12 },
+      ],
+    },
+    {
       name: "mission",
       label: "Our mission",
       type: "group",
@@ -456,7 +467,7 @@ export const COLLECTION_FIELDS = {
   leadership: [
     { name: "name", label: "Name", type: "text", max: 80, required: true },
     { name: "role", label: "Role", type: "text", max: 120, required: true },
-    { name: "bio", label: "Bio (leave empty until provided)", type: "textarea", max: 1500, rows: 4 },
+    { name: "bio", label: "Bio (leave empty until provided)", type: "textarea", max: 4000, rows: 8 },
     { name: "image", label: "Photo (leave empty for silhouette)", type: "image", folder: "gallery" },
     { name: "email", label: "Public email", type: "email" },
     { name: "phone", label: "Public phone", type: "phone" },
@@ -570,7 +581,6 @@ export const SETTINGS_FIELDS: FieldDef[] = [
     fields: [
       { name: "url", label: "Registration form URL (e.g. Google Form)", type: "link" },
       { name: "buttonLabel", label: "Button label", type: "text", max: 40 },
-      { name: "qrImage", label: "QR code image (must point to the same form)", type: "image", folder: "misc" },
     ],
   },
   {

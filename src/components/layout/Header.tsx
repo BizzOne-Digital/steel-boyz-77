@@ -88,7 +88,7 @@ export function Header({ logo, name, affiliation }: { logo: string; name: string
         </Link>
 
         <nav aria-label="Primary" className="ml-auto hidden lg:block">
-          <ul className="flex items-center gap-1 xl:gap-3">
+          <ul className="flex items-center gap-0.5 xl:gap-1">
             {NAV_LINKS.map((l) => {
               const active = isActive(l.href);
               return (
@@ -97,8 +97,8 @@ export function Header({ logo, name, affiliation }: { logo: string; name: string
                     href={l.href}
                     aria-current={active ? "page" : undefined}
                     className={cn(
-                      "relative block px-3 py-2 font-condensed text-lg font-semibold uppercase tracking-wide transition-colors hover:text-brand",
-                      "after:absolute after:inset-x-3 after:-bottom-0.5 after:h-[3px] after:origin-left after:bg-brand after:transition-transform after:duration-300",
+                      "relative block whitespace-nowrap px-2 py-2 font-condensed text-base font-semibold xl:px-3 xl:text-lg uppercase tracking-wide transition-colors hover:text-brand",
+                      "after:absolute after:inset-x-2 xl:after:inset-x-3 after:-bottom-0.5 after:h-[3px] after:origin-left after:bg-brand after:transition-transform after:duration-300",
                       active ? "text-brand after:scale-x-100" : "text-white after:scale-x-0 hover:after:scale-x-100",
                     )}
                   >
@@ -112,7 +112,7 @@ export function Header({ logo, name, affiliation }: { logo: string; name: string
 
         <Link
           href="/contact"
-          className="group hidden items-center gap-1.5 bg-brand px-6 py-3 font-condensed text-base font-bold uppercase tracking-wide text-black clip-angle transition-transform hover:-translate-y-0.5 lg:inline-flex"
+          className="group hidden items-center gap-1.5 bg-brand px-6 py-3 font-condensed text-base font-bold uppercase tracking-wide text-black clip-angle transition-transform hover:-translate-y-0.5 xl:inline-flex"
         >
           Get in Touch
           <ChevronRight className="size-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />

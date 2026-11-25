@@ -1,3 +1,5 @@
+import { CAM_STEPHENS_BIO, CAM_STEPHENS_PHOTO, UNDER_THE_RADAR_STATEMENT } from "./client-copy";
+
 /* Verified starter content supplied by the client. Nothing here claims
    results, rankings, placements, testimonials or credentials. */
 
@@ -32,7 +34,6 @@ export const DEFAULT_SETTINGS = {
   registration: {
     url: "https://docs.google.com/forms/d/e/1FAIpQLSfjOR4si_iZHJ0whe-6OL_wOBsSBlrYXFg9L-fnvo01U-9OsQ/viewform?usp=header",
     buttonLabel: "Register Now",
-    qrImage: "/images/site/registration-qr.png",
   },
   notifications: { emailEnabled: true, recipient: "sdstephens321@gmail.com" },
   privacy: {
@@ -161,6 +162,12 @@ export const DEFAULT_PAGES = {
       body:
         "STEEL BOYZ 7-7 is a football program and an affiliate of Under the Radar Recruiting FLPA. We exist to give athletes a place to sharpen their skills, compete, and work toward their goals in the game.\n\nOur approach combines organized 7-on-7 team play, certified one-on-one training, film and profile reviews, and recruiting-focused resources, so athletes and their families have one place to start building.",
       image: "/images/site/about-helmet.webp",
+    },
+    affiliate: {
+      visible: true,
+      eyebrow: "Our Affiliation",
+      heading: "Under the Radar Recruiting",
+      body: UNDER_THE_RADAR_STATEMENT,
     },
     mission: {
       visible: true,
@@ -402,7 +409,7 @@ export const DEFAULT_TEAMS = [
 
 export const DEFAULT_LEADERSHIP = [
   { name: "Scott Stephens", role: "Owner", bio: "", image: "", email: "sdstephens321@gmail.com", phone: "+1 727 992 4101", showOnHome: true, displayOrder: 1, active: true },
-  { name: "Cameron Stephens", role: "Co-Owner / Operations Manager / 18U Coach", bio: "", image: "", email: "", phone: "+1 814 574 6469", showOnHome: true, displayOrder: 2, active: true },
+  { name: "Cameron Stephens", role: "Co-Owner / Operations Manager / 18U Coach", bio: CAM_STEPHENS_BIO, image: CAM_STEPHENS_PHOTO, email: "", phone: "+1 814 574 6469", showOnHome: true, displayOrder: 2, active: true },
 ];
 
 export const DEFAULT_MERCHANDISE = [

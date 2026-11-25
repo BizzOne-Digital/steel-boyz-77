@@ -17,7 +17,7 @@ export default async function OurTeamPage() {
         <section aria-label={p.leadership.heading} className="bg-ink py-20 lg:py-28">
           <Container>
             <SectionHeading eyebrow={p.leadership.eyebrow} title={p.leadership.heading} text={p.leadership.text} />
-            <ul className="mt-14 grid gap-6 lg:grid-cols-2">
+            <ul className="mt-14 grid gap-6">
               {leaders.map((l, i) => (
                 <Reveal as="li" key={l._id ?? l.name} delay={i * 0.1}>
                   <LeaderCard leader={l} showContact />

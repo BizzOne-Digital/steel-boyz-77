@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ChevronRight, Mail, Phone, UserRound } from "lucide-react";
 import type { LeaderItem, MerchItem, ServiceItem, TeamItem } from "@/lib/data";
 import { telHref } from "@/lib/constants";
-import { cn, formatPrice } from "@/lib/utils";
+import { cn, formatPrice, paragraphs } from "@/lib/utils";
 import { Icon } from "@/components/ui/Icon";
 import { SmartImage } from "@/components/ui/SmartImage";
 
@@ -90,9 +90,9 @@ export function TeamCard({ team }: { team: TeamItem }) {
 export function LeaderCard({ leader, showContact = false }: { leader: LeaderItem; showContact?: boolean }) {
   return (
     <article className="group relative flex h-full flex-col overflow-hidden border border-white/10 bg-charcoal clip-card transition-[transform,border-color] duration-300 hover:-translate-y-1 hover:border-brand sm:flex-row">
-      <div className="relative aspect-square shrink-0 overflow-hidden bg-ink-2 sm:w-48">
+      <div className="relative aspect-square shrink-0 overflow-hidden bg-ink-2 sm:w-56 sm:self-start">
         {leader.image ? (
-          <SmartImage src={leader.image} alt={`Photo of ${leader.name}`} fill sizes="12rem" className="object-cover" />
+          <SmartImage src={leader.image} alt={`Photo of ${leader.name}`} fill sizes="(min-width: 640px) 14rem, 100vw" className="object-cover" />
         ) : (
           <div role="img" aria-label="Photo coming soon" className="flex h-full items-end justify-center bg-[radial-gradient(circle_at_50%_30%,#2a2a2a,#0b0b0b)]">
             <UserRound className="size-36 translate-y-4 text-steel" strokeWidth={1} aria-hidden="true" />
@@ -103,7 +103,18 @@ export function LeaderCard({ leader, showContact = false }: { leader: LeaderItem
       <div className="flex flex-1 flex-col justify-center p-6 sm:p-7">
         <h3 className="font-display text-4xl text-white">{leader.name}</h3>
         <p className="mt-1 font-condensed text-base font-bold uppercase tracking-wide text-brand">{leader.role}</p>
-        {leader.bio && <p className="mt-3 text-sm leading-relaxed text-muted">{leader.bio}</p>}
+        {leader.bio &&
+          (showContact ? (
+            <div className="mt-4 space-y-3 text-sm leading-relaxed text-white/80">
+              {paragraphs(leader.bio).map((p, i) => (
+                <p key={i} className="whitespace-pre-line">
+                  {p}
+                </p>
+              ))}
+            </div>
+          ) : (
+            <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-muted">{leader.bio}</p>
+          ))}
         {showContact && (leader.email || leader.phone) && (
           <ul className="mt-4 space-y-1.5 text-sm">
             {leader.email && (
